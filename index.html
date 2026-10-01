@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111111">
+  <title>Sign language detection</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main>
+    <h1>Sign language detection</h1>
+
+    <section class="camera-window" aria-label="Sign language camera">
+      <video id="camera" playsinline muted></video>
+      <canvas id="processing" hidden></canvas>
+      <canvas id="output"></canvas>
+    </section>
+
+    <div class="controls">
+      <button id="start" type="button" disabled>Start camera</button>
+      <button id="switch-camera" type="button" hidden aria-label="Switch between front and back camera" title="Switch camera">
+        <span class="rotate-icon" aria-hidden="true">↻</span>
+        <span>Switch camera</span>
+      </button>
+      <button id="stop" type="button" hidden>Stop camera</button>
+    </div>
+    <p id="message" role="status">Loading trained model…</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js" crossorigin="anonymous"></script>
+  <script type="module" src="./inference_classifier.js"></script>
+</body>
+</html>
